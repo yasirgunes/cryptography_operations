@@ -1,6 +1,9 @@
 package org.basic_crypto;
 
 import org.bouncycastle.util.encoders.Base64;
+
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.Scanner;
@@ -16,7 +19,7 @@ public class Main {
     public static final String PURPLE = "\033[0;35m";
     public static final String CYAN = "\033[0;36m";
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoSuchAlgorithmException, NoSuchProviderException {
         Scanner scanner = new Scanner(System.in);
         boolean isAlgorithmExit = false;
 
@@ -25,6 +28,7 @@ public class Main {
             System.out.println("1) RSA");
             System.out.println("2) ECC");
             System.out.println("3) Exit from the program");
+            System.out.println("\n4) Hash a string");
             System.out.print("> ");
 
             int algorithmChoice = Integer.parseInt(scanner.nextLine());
@@ -32,6 +36,22 @@ public class Main {
             if (algorithmChoice == 3) {
                 isAlgorithmExit = true;
                 System.out.println("Bye.");
+                continue;
+            }
+            else if(algorithmChoice == 4){
+                System.out.print("Enter a string: ");
+                String dataToHash = scanner.nextLine();
+                System.out.println("Hashed Data:");
+                System.out.println(GREEN + CryptOperations.hashString(dataToHash) + RESET);
+
+                // ask user do they want to continue
+                System.out.println("Do you want to continue? (y/n)");
+                System.out.print("> ");
+                String cont = scanner.nextLine().trim();
+                if (cont.equalsIgnoreCase("n")) {
+                    System.out.println("Bye.");
+                    isAlgorithmExit = true;
+                }
                 continue;
             }
 
@@ -128,7 +148,7 @@ public class Main {
                         System.out.println(RED + "Invalid choice. Please try again." + RESET);
                 }
 
-                System.out.println(PURPLE + "Do you want to continue? (y/n)" + RESET);
+                System.out.println("Do you want to continue? (y/n)");
                 System.out.print("> ");
                 String cont = scanner.nextLine().trim();
                 if (cont.equalsIgnoreCase("n")) {
