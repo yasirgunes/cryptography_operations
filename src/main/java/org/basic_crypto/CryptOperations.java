@@ -16,6 +16,8 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 import java.security.spec.PKCS8EncodedKeySpec;
 
+import static org.basic_crypto.Main.*;
+
 public class CryptOperations {
     private static final int RSA_ALGORITHM = 1;
     private static final int ECC_ALGORITHM = 2;
@@ -43,8 +45,8 @@ public class CryptOperations {
             publicKey = keyPair.getPublic();
 
             System.out.println("Key Pair generated for the algorithm: RSA.");
-            System.out.println("Public KEY:\n" + Base64.toBase64String(publicKey.getEncoded()));
-            System.out.println("Private KEY:\n" + Base64.toBase64String(privateKey.getEncoded()));
+            System.out.println("Public KEY:\n" + GREEN + Base64.toBase64String(publicKey.getEncoded()) + RESET);
+            System.out.println("Private KEY:\n" + RED + Base64.toBase64String(privateKey.getEncoded()) + RESET);
         } else { // this.algorithm == ECC_ALGORITHM => ECC
             KeyPairGenerator keyGen = KeyPairGenerator.getInstance("EC", "BC");
             ECParameterSpec ecSpec = ECNamedCurveTable.getParameterSpec("secp256r1");
@@ -54,8 +56,8 @@ public class CryptOperations {
             publicKey = keyPair.getPublic();
 
             System.out.println("Key Pair generated for the algorithm: ECC.");
-            System.out.println("Public KEY: " + Base64.toBase64String(publicKey.getEncoded()));
-            System.out.println("Private KEY: " + Base64.toBase64String(privateKey.getEncoded()));
+            System.out.println("Public KEY:\n" + GREEN + Base64.toBase64String(publicKey.getEncoded()) + RESET);
+            System.out.println("Private KEY:\n" + RED + Base64.toBase64String(privateKey.getEncoded()) + RESET);
         }
     }
 
