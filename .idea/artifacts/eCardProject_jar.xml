@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="eCardProject:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/eCardProject_jar</output-path>
+    <root id="archive" name="eCardProject.jar">
+      <element id="module-output" name="eCardProject" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/bouncycastle/bcpkix-jdk18on/1.76/bcpkix-jdk18on-1.76.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/bouncycastle/bcprov-jdk18on/1.76/bcprov-jdk18on-1.76.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/bouncycastle/bcutil-jdk18on/1.76/bcutil-jdk18on-1.76.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
